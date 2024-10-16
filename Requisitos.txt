@@ -1,0 +1,55 @@
+
+=============================================
+REQUISITOS PARA LA EJECUCIÓN DEL APLICATIVO EN EXCEL
+=============================================
+
+1. VERSIÓN DE MICROSOFT OFFICE:
+   -------------------------------------------
+   - Office 2013 o superior (compatible con 32 y 64 bits).
+   - Se recomienda Excel 2016 o superior para un rendimiento óptimo.
+
+2. SISTEMA OPERATIVO:
+   -------------------------------------------
+   - Windows 7, 8, 10, 11 (32 o 64 bits).
+
+3. COMPONENTES REQUERIDOS:
+   -------------------------------------------
+   - Microsoft Access Database Engine (ACE):
+     - Necesario para la conexión con bases de datos Access.
+     - Verificar que esté correctamente instalado y registrado.
+   - MSComctlLib (Microsoft Common Controls):
+     - Necesario para ListViews, TreeViews y otros controles avanzados.
+     - Debe estar registrado para su correcto funcionamiento.
+
+4. CONFIGURACIÓN DE EXCEL:
+   -------------------------------------------
+   - Habilitar macros VBA en Excel.
+   - Configurar la opción de "Confiar en el acceso al modelo de objetos del proyecto VBA":
+     - Ir a Opciones -> Centro de confianza -> Configuración de macros -> Habilitar acceso a VBA.
+   - Asegurarse de que el "Centro de confianza" permita la ejecución de controles ActiveX.
+
+5. REFERENCIAS DE VBA:
+   -------------------------------------------
+   - Microsoft ActiveX Data Objects (ADO):
+     - Para el manejo de conexiones a bases de datos Access (ADO).
+     - Verificar que las referencias estén habilitadas en el editor VBA:
+       - Herramientas -> Referencias -> Microsoft ActiveX Data Objects.
+
+6. LIBRERÍAS REQUERIDAS (32/64 BITS):
+   -------------------------------------------
+   - Microsoft ActiveX Data Objects Library (ADODB):
+     - Para las conexiones de base de datos.
+   - Microsoft DAO 3.6 Object Library:
+     - Para la creación y administración de bases de datos Access.
+   - Windows Common Controls 6.0 (MSCOMCTL.OCX):
+     - Necesario para ciertos controles avanzados.
+
+7. RECOMENDACIONES ADICIONALES:
+   -------------------------------------------
+   - Se recomienda desactivar las advertencias de seguridad de macros en Excel para un flujo de trabajo sin interrupciones.
+   - Asegurarse de que la carpeta de instalación de la base de datos tenga permisos de lectura y escritura.
+   - Verificar que la base de datos Access esté en una ubicación de confianza configurada en el Centro de confianza de Excel.
+
+=============================================
+NOTA: En caso de falta de alguno de los componentes anteriores, el sistema no funcionará correctamente. Verifique la instalación y registro de cada uno antes de ejecutar la aplicación.
+=============================================
