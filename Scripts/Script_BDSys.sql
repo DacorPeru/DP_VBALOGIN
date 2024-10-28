@@ -82,20 +82,24 @@ VALUES ('IconCancelar', 'Cancelar.gif', 'Ícono para el botón Cancelar');
 -- Crear la tabla Usuario
 CREATE TABLE Usuario (
     id_usuario AUTOINCREMENT PRIMARY KEY,
-    dni text (8) UNIQUE,
+    dni TEXT (8) UNIQUE,
     nombres TEXT(100),
     apellido_pat TEXT(100),
     apellido_mat TEXT(100),
     email TEXT(150) UNIQUE,
-    usuario text (100),
+    usuario TEXT(100),
     password_hash TEXT(255),
-    id_empresa LONG,
+    salt TEXT(255), 
+    id_rol LONG,
     estado TEXT(20)
 );
 
--- Insertar datos predeterminados en la tabla Usuario
-INSERT INTO Usuario (dni, nombres, apellido_pat, apellido_mat, email, usuario, password_hash, id_empresa, estado) 
-VALUES ('72653950', 'Gesmer Biuler', 'Reyes', 'Eustaquio', 'gesmerbre12@gmail.com', 'DeveloperGes', 'pss1297', 1, 'Activo');
+
+INSERT INTO Usuario (dni, nombres, apellido_pat, apellido_mat, email, usuario, password_hash, salt, id_rol, estado) 
+VALUES ('00000000', 'Admin', 'User', 'Predeterminado', 'admin@example.com', 'AdminUser', 'HASH_GENERADO', 'SALT_GENERADO', 1, 'Activo');
+
+
+
 
 -- Crear la tabla Licencia
 CREATE TABLE Licencia (
@@ -192,7 +196,6 @@ INSERT INTO Empresa_Sesion (id_usuario, id_empresa, fecha_inicio, estado)
 VALUES (1, 1, Now(), 'Activa');
 
 -- Establecer relaciones de claves foráneas
-ALTER TABLE Usuario ADD FOREIGN KEY (id_empresa) REFERENCES Empresa(id_empresa);
 ALTER TABLE Empresa_Sesion ADD FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario);
 ALTER TABLE Empresa_Sesion ADD FOREIGN KEY (id_empresa) REFERENCES Empresa(id_empresa);
 ALTER TABLE Usuario_Rol ADD FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario);
