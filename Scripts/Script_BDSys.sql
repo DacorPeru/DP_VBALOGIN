@@ -124,6 +124,22 @@ CREATE TABLE Rol (
     estado TEXT(20)
 );
 
+
+-- Insertar datos predeterminados en la tabla Rol
+INSERT INTO Rol (id_rol, nombre_rol, descripcion_rol, estado) 
+VALUES (1, 'Desarrollador', 'Creador de aplicaciones y sistemas', 'Activa');
+INSERT INTO Rol (id_rol, nombre_rol, descripcion_rol, estado) 
+VALUES (2, 'Administrador', 'Control total sobre el sistema de inventario', 'Activa');
+INSERT INTO Rol (id_rol, nombre_rol, descripcion_rol, estado) 
+VALUES (3, 'Supervisor', 'Supervisa el equipo de inventario y garantiza su eficiencia', 'Activa');
+INSERT INTO Rol (id_rol, nombre_rol, descripcion_rol, estado) 
+VALUES (4, 'Inventariador', 'Responsable de la gestión y control del inventario', 'Activa');
+INSERT INTO Rol (id_rol, nombre_rol, descripcion_rol, estado) 
+VALUES (5, 'Coordinador', 'Supervisa la recepción, almacenamiento y despacho de mercancías', 'Activa');
+INSERT INTO Rol (id_rol, nombre_rol, descripcion_rol, estado) 
+VALUES (6, 'Facilitador Entidad', 'Facilita procesos de capacitación y gestión en la entidad', 'Activa');
+
+
 -- Crear la tabla Permiso
 CREATE TABLE Permiso (
     id_permiso AUTOINCREMENT PRIMARY KEY,
@@ -132,6 +148,45 @@ CREATE TABLE Permiso (
     estado TEXT(20)
 );
 
+-- Insertar datos predeterminados en la tabla Permiso
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Ver Usuarios', 'Permiso para visualizar la lista de usuarios', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Agregar Usuarios', 'Permiso para agregar nuevos usuarios', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Editar Usuarios', 'Permiso para modificar la información de los usuarios existentes', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Eliminar Usuarios', 'Permiso para eliminar usuarios del sistema', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Gestionar Inventario', 'Permiso para gestionar el inventario (agregar, editar, eliminar artículos)', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Ver Reportes', 'Permiso para visualizar reportes del sistema', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Administrar Roles', 'Permiso para agregar, editar o eliminar roles en el sistema', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Administrar Permisos', 'Permiso para asignar o modificar permisos a los roles', 'Activo');
+
+-- Agregar permisos para módulos adicionales si es necesario
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Acceder a Inventario', 'Permiso para acceder y gestionar el módulo de inventario', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Acceder a Reportes', 'Permiso para acceder y generar reportes', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Acceder a Configuraciones', 'Permiso para acceder y modificar configuraciones del sistema', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Acceder a Soporte', 'Permiso para acceder a la sección de soporte técnico', 'Activo');
+
+
 -- Crear la tabla Usuario_Rol
 CREATE TABLE Usuario_Rol (
     id_usuario LONG,
@@ -139,12 +194,65 @@ CREATE TABLE Usuario_Rol (
     PRIMARY KEY (id_usuario, id_rol)
 );
 
+-- Insertar datos predeterminados en la tabla Permiso
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Ver Usuarios', 'Permiso para visualizar la lista de usuarios', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Agregar Usuarios', 'Permiso para agregar nuevos usuarios', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Editar Usuarios', 'Permiso para modificar la información de los usuarios existentes', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Eliminar Usuarios', 'Permiso para eliminar usuarios del sistema', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Gestionar Inventario', 'Permiso para gestionar el inventario (agregar, editar, eliminar artículos)', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Ver Reportes', 'Permiso para visualizar reportes del sistema', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Administrar Roles', 'Permiso para agregar, editar o eliminar roles en el sistema', 'Activo');
+
+INSERT INTO Permiso (nombre_permiso, descripcion_permiso, estado) 
+VALUES ('Administrar Permisos', 'Permiso para asignar o modificar permisos a los roles', 'Activo');
+
+
+
 -- Crear la tabla Rol_Permiso
 CREATE TABLE Rol_Permiso (
     id_rol LONG,
     id_permiso LONG,
     PRIMARY KEY (id_rol, id_permiso)
 );
+
+-- Crear la tabla Modulo
+CREATE TABLE Modulo (
+    id_modulo AUTOINCREMENT PRIMARY KEY,
+    nombre_modulo TEXT(50),
+    descripcion_modulo TEXT(255),
+    estado TEXT(20)
+);
+
+-- Insertar datos predeterminados en la tabla Modulo
+INSERT INTO Modulo (nombre_modulo, descripcion_modulo, estado) 
+VALUES ('Inventario', 'Módulo para la gestión y control del inventario de productos', 'Activo');
+
+INSERT INTO Modulo (nombre_modulo, descripcion_modulo, estado) 
+VALUES ('Reportes', 'Módulo para la generación de reportes y análisis de datos', 'Activo');
+
+INSERT INTO Modulo (nombre_modulo, descripcion_modulo, estado) 
+VALUES ('Configuraciones', 'Módulo para la configuración general del sistema', 'Activo');
+
+INSERT INTO Modulo (nombre_modulo, descripcion_modulo, estado) 
+VALUES ('Soporte', 'Módulo para el acceso a soporte técnico y ayuda al usuario', 'Activo');
+
+INSERT INTO Modulo (nombre_modulo, descripcion_modulo, estado) 
+VALUES ('Administración', 'Módulo para la gestión de usuarios y roles del sistema', 'Activo');
+
+
 
 -- Crear la tabla Login
 CREATE TABLE Login (
